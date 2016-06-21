@@ -11,4 +11,4 @@ Target = manjaro-keyring
 # Depends = haveged
 # Depends = archlinux-keyring
 When = PreTransaction
-Exec = /usr/lib/manjaro-pacman-hooks/bin/dev-keys-upgrade manjaro-keyring
+Exec = /usr/share/libalpm/scripts/dev-keys-upgrade manjaro-keyring

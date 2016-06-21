@@ -10,4 +10,4 @@ Target = nvidia-utils
 [Action]
 #Depends = nvidia-utils
 When = PreTransaction
-Exec = /usr/lib/manjaro-pacman-hooks/bin/nvidia-legacy-upgrade nvidia-utils
+Exec = /usr/share/libalpm/scripts/nvidia-legacy-upgrade nvidia-utils

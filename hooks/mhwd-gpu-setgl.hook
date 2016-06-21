@@ -12,4 +12,4 @@ Target = catalyst-utils
 [Action]
 #Depends = mhwd
 When = PostTransaction
-Exec = /usr/lib/manjaro-pacman-hooks/bin/mhwd-gpu-setgl
+Exec = /usr/share/libalpm/scripts/mhwd-gpu-setgl
