@@ -1,14 +1,12 @@
 # NOTE: will not run if the transaction is interrupted for any reason
 
 [Trigger]
-# Operation = Install
 Operation = Upgrade
-# Operation = Remove
-Type = Package
-Target = manjaro-keyring
+Type = file
+Target = /usr/share/pacman/keyrings/*
 
 [Action]
-# Depends = haveged
-# Depends = archlinux-keyring
+Description = Updating keyrings ...
 When = PostTransaction
-Exec = /usr/share/libalpm/scripts/keyring-upgrade manjaro-keyring
+Exec = /usr/share/libalpm/scripts/keyring-upgrade
+NeedsTargets

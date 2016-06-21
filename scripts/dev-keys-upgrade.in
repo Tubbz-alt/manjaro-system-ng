@@ -2,36 +2,18 @@
 
 source @prefix@/share/libalpm/util-pacman.sh
 
-set_pkg_ver $1
+# running dirmngr helps prevent pacman-key from failing to connect to servers
+dirmngr </dev/null
 
-ver_condition=20160302-2
+declare -A keys=([artoo]=5DCB998E
+		[kirek]=AC97B894
+		[ayceman]=604F8BA2
+		[korrode]=5C0102A6
+		[oberon]=663CA268)
+# [stefano]=
 
-if $(ver_is_lower $ver $ver_condition); then
-	# running dirmngr helps prevent pacman-key from failing to connect to servers
-	dirmngr </dev/null
-
-	# fix artoo's signature
-	msg "Get artoo's signature ..."
-	pacman-key -r 5DCB998E
-	pacman-key --lsign-key 5DCB998E
-
-	# fix kirek's signature
-	msg "Get kirek's signature ..."
-	pacman-key -r AC97B894
-	pacman-key --lsign-key AC97B894
-
-	# fix ayceman's signature
-	msg "Get ayceman's signature ..."
-	pacman-key -r 604F8BA2
-	pacman-key --lsign-key 604F8BA2
-
-	# fix korrode's signature
-	msg "Get korrode's signature ..."
-	pacman-key -r 5C0102A6
-	pacman-key --lsign-key 5C0102A6
-
-	# fix oberon's signature
-	msg "Get oberon's signature ..."
-	pacman-key -r 663CA268
-	pacman-key --lsign-key 663CA268
-fi
+for name in ${!keys[@]};do
+	echo "Get $name's signature ..."
+	pacman-key -r ${keys[$name]}
+	pacman-key --lsign-key ${keys[$name]}
+done
