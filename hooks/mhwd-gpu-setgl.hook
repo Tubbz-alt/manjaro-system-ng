@@ -1,0 +1,15 @@
+# NOTE: will not run if the transaction is interrupted for any reason
+
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = mhwd
+Target = nvidia-utils
+Target = catalyst-utils
+
+[Action]
+#Depends = mhwd
+When = PostTransaction
+Exec = /usr/lib/manjaro-pacman-hooks/bin/mhwd-gpu-setgl

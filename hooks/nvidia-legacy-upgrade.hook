@@ -1,0 +1,13 @@
+# NOTE: will not run if the transaction is interrupted for any reason
+
+[Trigger]
+# Operation = Install
+Operation = Upgrade
+# Operation = Remove
+Type = Package
+Target = nvidia-utils
+
+[Action]
+#Depends = nvidia-utils
+When = PreTransaction
+Exec = /usr/lib/manjaro-pacman-hooks/bin/nvidia-legacy-upgrade nvidia-utils

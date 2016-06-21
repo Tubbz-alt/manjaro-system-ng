@@ -1,0 +1,22 @@
+#!/bin/sh
+
+source @prefix@/share/libalpm/util-pacman.sh
+
+set_pkg_ver $1
+
+ver_condition=20160307-1
+
+# recreate pacman gnupg master key
+if $(ver_is_lower $ver $ver_condition); then
+	install_pkg $1
+	msg "Recreate pacman gnupg master key ..."
+	if ${is_systemd};then
+		systemctl start haveged
+	else
+		service haveged start
+	fi
+	rm -fr /etc/pacman.d/gnupg
+	pacman-key --init
+	msg "Populate Archlinux and Manjaro gnupg keys ..."
+	pacman-key --populate archlinux manjaro
+fi
