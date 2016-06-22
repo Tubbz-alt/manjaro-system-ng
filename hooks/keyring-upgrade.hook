@@ -7,6 +7,7 @@ Target = /usr/share/pacman/keyrings/*
 
 [Action]
 Description = Updating keyrings ...
+Depends = haveged
 When = PostTransaction
 Exec = /usr/share/libalpm/scripts/keyring-upgrade
 NeedsTargets

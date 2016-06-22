@@ -3,7 +3,6 @@
 source @prefix@/share/libalpm/util-pacman.sh
 
 # recreate pacman gnupg master key
-install_pkg $1
 msg "Recreate pacman gnupg master key ..."
 if ${is_systemd};then
 	systemctl start haveged
