@@ -3,7 +3,7 @@
 [Trigger]
 Operation = Upgrade
 Type = File
-Target = /boot/vmlinuz-*
+Target = boot/vmlinuz-*
 
 [Action]
 When = PostTransaction
