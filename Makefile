@@ -8,7 +8,6 @@ SCRIPTS = \
 	scripts/grub-install \
 	scripts/grub-remove \
 	scripts/kernel-install \
-	scripts/kernel-upgrade \
 	scripts/kernel-remove
 
 HOOKS = \
@@ -17,7 +16,6 @@ HOOKS = \
 	hooks/grub-install.hook \
 	hooks/grub-remove.hook \
 	hooks/kernel-install.hook \
-	hooks/kernel-upgrade.hook \
 	hooks/kernel-remove.hook
 
 LIB = \

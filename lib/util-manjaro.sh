@@ -95,6 +95,10 @@ configure_grub_info(){
 run_initcpio(){
 		echo ">>> Generating initial ramdisk, using mkinitcpio.  Please wait..."
 		for preset in /etc/mkinitcpio.d/*.preset;do
+				# remove old initcpio
+				source $preset
+				rm -f ${default_image}
+
 				local kern=${preset%.*}
 				mkinitcpio -p ${kern##*/}
 		done
