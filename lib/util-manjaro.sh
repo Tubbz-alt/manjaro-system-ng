@@ -86,6 +86,12 @@ set_pkg_ver(){
     ver=$(get_pkg_ver $1)
 }
 
+configure_grub_info(){
+		for file in grub.info grub-dev.info; do
+				install-info "$1" usr/share/info/${file}.gz usr/share/info/dir 2> /dev/null
+		done
+}
+
 err() {
 	ALL_OFF="\e[1;0m"
 	BOLD="\e[1;1m"

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+source @prefix@/share/libalpm/util-manjaro.sh
+
+configure_grub_info "--delete"

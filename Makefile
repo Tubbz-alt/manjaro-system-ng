@@ -5,17 +5,19 @@ PREFIX = /usr/local
 SCRIPTS = \
 	scripts/keyring-upgrade \
 	scripts/dev-keys-upgrade \
-	scripts/grub-upgrade \
+	scripts/grub-install \
+	scripts/grub-remove \
 	script/kernel-upgrade
 
 HOOKS = \
 	hooks/keyring-upgrade.hook \
 	hooks/dev-keys-upgrade.hook \
-	hooks/grub-upgrade.hook \
+	hooks/grub-install.hook \
+	hooks/grub-remove.hook \
 	hooks/kernel-upgrade.hook
 
 LIB = \
-	lib/util-pacman.sh
+	lib/util-manjaro.sh
 
 all: $(SCRIPTS)
 

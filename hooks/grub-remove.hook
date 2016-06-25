@@ -1,0 +1,10 @@
+# NOTE: will not run if the transaction is interrupted for any reason
+
+[Trigger]
+Operation = Remove
+Type = Package
+Target = grub
+
+[Action]
+When = PreTransaction
+Exec = /usr/share/libalpm/scripts/grub-remove

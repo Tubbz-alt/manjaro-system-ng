@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source @prefix@/share/libalpm/util-pacman.sh
+source @prefix@/share/libalpm/util-manjaro.sh
 
 # running dirmngr helps prevent pacman-key from failing to connect to servers
 dirmngr </dev/null

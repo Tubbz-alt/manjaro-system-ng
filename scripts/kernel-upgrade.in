@@ -1,5 +1,7 @@
 #!/bin/sh
 
+source @prefix@/share/libalpm/util-manjaro.sh
+
 # arg 1:  the new package version
 # arg 2:  the old package version
 
