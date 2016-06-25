@@ -92,6 +92,14 @@ configure_grub_info(){
 		done
 }
 
+run_initcpio(){
+		echo ">>> Generating initial ramdisk, using mkinitcpio.  Please wait..."
+		for preset in /etc/mkinitcpio.d/*.preset;do
+				local kern=${preset%.*}
+				mkinitcpio -p ${preset##*/}
+		done
+}
+
 err() {
 	ALL_OFF="\e[1;0m"
 	BOLD="\e[1;1m"

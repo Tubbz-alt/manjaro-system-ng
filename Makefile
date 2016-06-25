@@ -7,14 +7,18 @@ SCRIPTS = \
 	scripts/dev-keys-upgrade \
 	scripts/grub-install \
 	scripts/grub-remove \
-	script/kernel-upgrade
+	script/kernel-install \
+	script/kernel-upgrade \
+	script/kernel-remove
 
 HOOKS = \
 	hooks/keyring-upgrade.hook \
 	hooks/dev-keys-upgrade.hook \
 	hooks/grub-install.hook \
 	hooks/grub-remove.hook \
-	hooks/kernel-upgrade.hook
+	hooks/kernel-install.hook \
+	hooks/kernel-upgrade.hook \
+	hooks/kernel-remove.hook
 
 LIB = \
 	lib/util-manjaro.sh

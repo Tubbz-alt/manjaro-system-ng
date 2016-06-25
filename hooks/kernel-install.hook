@@ -1,11 +1,11 @@
 # NOTE: will not run if the transaction is interrupted for any reason
 
 [Trigger]
-Operation = Upgrade
+Operation = Install
 Type = File
 Target = /boot/vmlinuz-*
 
 [Action]
 When = PostTransaction
-Exec = /usr/share/libalpm/scripts/kernel-upgrade
+Exec = /usr/share/libalpm/scripts/kernel-install
 NeedsTargets
