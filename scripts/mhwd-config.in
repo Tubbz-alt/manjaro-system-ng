@@ -2,22 +2,19 @@
 
 source @prefix@/share/libalpm/util-manjaro.sh
 
-if [ "$(mhwd -li | grep catalyst)" != "" ] && \
-[ "$(mhwd -li | grep hybrid)" == "" ]; then
-        gl_type=catalyst
-
+if $(is_installed_ati); then
+        gl_type='catalyst'
 fi
-if [ "$(mhwd -li | grep hybrid)" != "" ]; then
-        gl_type=mesa
+if $(is_installed_hybrid); then
+        gl_type='mesa'
 fi
-if [ "$(mhwd -li | grep nvidia)" != "" ] && \
-[ "$(mhwd -li | grep hybrid)" == "" ] ; then
-        gl_type=nvidia
+if $(is_installed_nvidia); then
+        gl_type='nvidia'
 fi
-msg "Fixing ${gl_type} settings ..."
+# msg "Setting %s gl ..." "${gl_type}"
 mhwd-gpu --setgl "${gl_type}"
 mhwd-gpu --check
 
-msg "use mhwd-gpu to set catalyst as default: 'mhwd-gpu --setgl catalyst'"
-msg "use mhwd-gpu to set mesa as default: 'mhwd-gpu --setgl mesa'"
-msg "use mhwd-gpu to set nvidia as default: 'mhwd-gpu --setgl nvidia'"
+# msg "use mhwd-gpu to set catalyst as default: 'mhwd-gpu --setgl catalyst'"
+# msg "use mhwd-gpu to set mesa as default: 'mhwd-gpu --setgl mesa'"
+# msg "use mhwd-gpu to set nvidia as default: 'mhwd-gpu --setgl nvidia'"

@@ -10,6 +10,7 @@ Target = nvidia-utils
 Target = catalyst-utils
 
 [Action]
+Description = Configuring opengl ...
 Depends = mhwd
 When = PostTransaction
 Exec = /usr/share/libalpm/scripts/mhwd-config

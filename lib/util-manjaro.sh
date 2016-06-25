@@ -31,6 +31,32 @@ is_installed(){
 	fi
 }
 
+is_installed_nvidia(){
+	if [ "$(mhwd -li | grep nvidia)" != "" ] && \
+		[ "$(mhwd -li | grep hybrid)" == "" ] ; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+is_installed_ati(){
+	if [ "$(mhwd -li | grep catalyst)" != "" ] && \
+		[ "$(mhwd -li | grep hybrid)" == "" ]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+is_installed_hybrid(){
+	if [ "$(mhwd -li | grep hybrid)" != "" ]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
 install_pkg(){
 	local pkg=$1
 	rm_db_lck
