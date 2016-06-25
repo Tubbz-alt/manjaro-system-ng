@@ -2,7 +2,7 @@
 
 [Trigger]
 Operation = Upgrade
-Type = file
+Type = File
 Target = usr/share/pacman/keyrings/*
 
 [Action]
