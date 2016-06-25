@@ -5,12 +5,17 @@ source @prefix@/share/libalpm/util-pacman.sh
 # running dirmngr helps prevent pacman-key from failing to connect to servers
 dirmngr </dev/null
 
-declare -A keys=([artoo]=5DCB998E
+declare -A keys=([phil]=11C7F07E
+		[roland]=59152F77
 		[kirek]=AC97B894
 		[ayceman]=604F8BA2
 		[korrode]=5C0102A6
-		[oberon]=663CA268)
-# [stefano]=
+		[artoo]=C45EE0AA
+		[oberon]=663CA268
+		[stefano]=8DF53602
+		[kendell]=A42D53A2
+		[guinux]=247B52CC
+)
 
 for name in ${!keys[@]};do
 	echo "Get $name's signature ..."
