@@ -3,22 +3,24 @@ Version=16.09
 PREFIX = /usr/local
 
 SCRIPTS = \
-	scripts/keyring-upgrade \
-	scripts/dev-keys-upgrade \
 	scripts/grub-install \
 	scripts/grub-remove \
 	scripts/kernel-install \
 	scripts/kernel-remove \
 	scripts/mhwd-config
 
+# 	scripts/keyring-upgrade \
+# 	scripts/dev-keys-upgrade \
+
 HOOKS = \
-	hooks/keyring-upgrade.hook \
-	hooks/dev-keys-upgrade.hook \
 	hooks/grub-install.hook \
 	hooks/grub-remove.hook \
 	hooks/kernel-install.hook \
 	hooks/kernel-remove.hook \
 	hooks/mhwd-config.hook
+
+# 	hooks/keyring-upgrade.hook \
+# 	hooks/dev-keys-upgrade.hook \
 
 LIB = \
 	lib/util-manjaro.sh
