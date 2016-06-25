@@ -1,0 +1,12 @@
+# NOTE: will not run if the transaction is interrupted for any reason
+
+[Trigger]
+Operation = Upgrade
+Type = file
+Target = /boot/initramfs-*.img
+Target = /boot/vmlinuz-*
+
+[Action]
+When = PostTransaction
+Exec = /usr/share/libalpm/scripts/kernel-upgrade
+NeedsTargets

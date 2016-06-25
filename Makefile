@@ -4,11 +4,15 @@ PREFIX = /usr/local
 
 SCRIPTS = \
 	scripts/keyring-upgrade \
-	scripts/dev-keys-upgrade
+	scripts/dev-keys-upgrade \
+	scripts/grub-upgrade \
+	script/kernel-upgrade
 
 HOOKS = \
 	hooks/keyring-upgrade.hook \
-	hooks/dev-keys-upgrade.hook
+	hooks/dev-keys-upgrade.hook \
+	hooks/grub-upgrade.hook \
+	hooks/kernel-upgrade.hook
 
 LIB = \
 	lib/util-pacman.sh
