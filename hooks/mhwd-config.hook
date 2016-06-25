@@ -10,6 +10,6 @@ Target = nvidia-utils
 Target = catalyst-utils
 
 [Action]
-#Depends = mhwd
+Depends = mhwd
 When = PostTransaction
-Exec = /usr/share/libalpm/scripts/mhwd-gpu-setgl
+Exec = /usr/share/libalpm/scripts/mhwd-config
