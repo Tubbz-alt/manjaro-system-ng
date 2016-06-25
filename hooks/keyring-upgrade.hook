@@ -3,7 +3,9 @@
 [Trigger]
 Operation = Upgrade
 Type = File
-Target = usr/share/pacman/keyrings/*
+Target = usr/share/pacman/keyrings/*.gpg
+Target = usr/share/pacman/keyrings/*-trusted
+Target = usr/share/pacman/keyrings/*-revoked
 
 [Action]
 Description = Updating keyrings ...
