@@ -3,7 +3,7 @@
 source @prefix@/share/libalpm/util-manjaro.sh
 
 # running dirmngr helps prevent pacman-key from failing to connect to servers
-dirmngr </dev/null
+#dirmngr </dev/null
 
 declare -A keys=([phil]=11C7F07E
 		[roland]=59152F77
