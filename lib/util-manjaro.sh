@@ -96,7 +96,7 @@ run_initcpio(){
 		echo ">>> Generating initial ramdisk, using mkinitcpio.  Please wait..."
 		for preset in /etc/mkinitcpio.d/*.preset;do
 				local kern=${preset%.*}
-				mkinitcpio -p ${preset##*/}
+				mkinitcpio -p ${kern##*/}
 		done
 }
 
