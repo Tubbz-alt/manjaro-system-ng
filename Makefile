@@ -7,9 +7,9 @@ SCRIPTS = \
 	scripts/dev-keys-upgrade \
 	scripts/grub-install \
 	scripts/grub-remove \
-	script/kernel-install \
-	script/kernel-upgrade \
-	script/kernel-remove
+	scripts/kernel-install \
+	scripts/kernel-upgrade \
+	scripts/kernel-remove
 
 HOOKS = \
 	hooks/keyring-upgrade.hook \
