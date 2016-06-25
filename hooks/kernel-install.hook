@@ -2,7 +2,7 @@
 
 [Trigger]
 Operation = Install
-Operation = Update
+Operation = Upgrade
 Type = File
 Target = boot/vmlinuz-*
 
