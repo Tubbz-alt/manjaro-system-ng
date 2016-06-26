@@ -7,6 +7,7 @@ Type = File
 Target = boot/vmlinuz-*
 
 [Action]
+Description = Configuring system boot ...
 When = PostTransaction
 Exec = /usr/share/libalpm/scripts/kernel-install
 NeedsTargets

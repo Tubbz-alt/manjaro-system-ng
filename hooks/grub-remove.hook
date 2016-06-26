@@ -6,5 +6,6 @@ Type = Package
 Target = grub
 
 [Action]
+Description = Updating grub ...
 When = PreTransaction
 Exec = /usr/share/libalpm/scripts/grub-remove
