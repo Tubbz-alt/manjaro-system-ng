@@ -5,9 +5,9 @@ Operation = Install
 Operation = Upgrade
 Operation = Remove
 Type = Package
-Target = mhwd
-Target = nvidia-utils
-Target = catalyst-utils
+Target = nvidia
+Target = catalyst
+Target = mesa
 
 [Action]
 Description = Configuring opengl ...
