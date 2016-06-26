@@ -114,18 +114,27 @@ set_pkg_ver(){
 
 configure_grub_info(){
 		for file in grub.info grub-dev.info; do
-				install-info "$1" /usr/share/info/${file}.gz /usr/share/info/dir 2> /dev/null
+				install-info "$@" /usr/share/info/${file}.gz /usr/share/info/dir 2> /dev/null
+		done
+}
+
+run_depmod(){
+		for kernel in /usr/lib/modules/extramodules-*-MANJARO/version;do
+				local version=$(cat $kernel)
+				echo ">>> Updating ${version} module dependencies ..."
+				depmod ${version}
 		done
 }
 
 run_initcpio(){
-		echo ">>> Generating initial ramdisk, using mkinitcpio.  Please wait..."
 		for preset in /etc/mkinitcpio.d/*.preset;do
 				# remove old initcpio
 				source $preset
 				rm -f ${default_image}
 
 				local kern=${preset%.*}
+				echo ">>> Generating ${kern##*/} initial ramdisk, using mkinitcpio ..."
+
 				mkinitcpio -p ${kern##*/}
 		done
 }

@@ -7,9 +7,7 @@ if findmnt --fstab -uno SOURCE /boot &>/dev/null && ! mountpoint -q /boot; then
 		echo "WARNING: /boot appears to be a separate partition but is not mounted."
 fi
 
-# updating module dependencies
-# echo ">>> Updating module dependencies. Please wait ..."
-# depmod ${KERNEL_VERSION}
+run_depmod
 
 run_initcpio
 
