@@ -8,6 +8,7 @@ Target = boot/vmlinuz-*
 
 [Action]
 Description = Configuring system boot ...
+Depends = grub
 When = PostTransaction
 Exec = /usr/share/libalpm/scripts/kernel-install
 NeedsTargets

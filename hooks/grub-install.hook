@@ -8,6 +8,6 @@ Target = grub
 
 [Action]
 Description = Updating grub ...
-Depends = grub
+#Depends = grub
 When = PostTransaction
 Exec = /usr/share/libalpm/scripts/grub-install

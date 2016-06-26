@@ -6,6 +6,6 @@ source @prefix@/share/libalpm/util-manjaro.sh
 # rm -f /boot/initramfs-${KERNEL_BASE}-${ARCH}*.img
 
 # update grub.cfg
-if [ -f /usr/sbin/update-grub ]; then
+# if [ -f /usr/sbin/update-grub ]; then
 		update-grub
-fi
+# fi

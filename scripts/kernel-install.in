@@ -18,8 +18,8 @@ echo ">>>          In order to use your keyboard during early init, you MUST"
 echo ">>>          include the 'keyboard' hook in your mkinitcpio.conf."
 
 # update grub.cfg
-if [ -f /usr/sbin/update-grub ]; then
+# if [ -f /usr/sbin/update-grub ]; then
 		update-grub
-else
-		echo "WARNING: It seems that grub is not installed - Your system might not boot."
-fi
+# else
+# 		echo "WARNING: It seems that grub is not installed - Your system might not boot."
+# fi

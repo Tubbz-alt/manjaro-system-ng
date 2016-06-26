@@ -7,6 +7,6 @@ Target = grub
 
 [Action]
 Description = Updating grub ...
-Depends = grub
+#Depends = grub
 When = PreTransaction
 Exec = /usr/share/libalpm/scripts/grub-remove
