@@ -114,7 +114,7 @@ set_pkg_ver(){
 
 configure_grub_info(){
 		for file in grub.info grub-dev.info; do
-				install-info "$1" usr/share/info/${file}.gz usr/share/info/dir 2> /dev/null
+				install-info "$1" /usr/share/info/${file}.gz /usr/share/info/dir 2> /dev/null
 		done
 }
 
