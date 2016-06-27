@@ -1,0 +1,17 @@
+#!/bin/sh
+
+source @prefix@/share/libalpm/util-manjaro.sh
+
+if $(is_installed_ati); then
+        gl_type='catalyst'
+fi
+if $(is_installed_hybrid); then
+        gl_type='mesa'
+fi
+if $(is_installed_nvidia); then
+        gl_type='nvidia'
+fi
+
+mhwd-gpu --setgl "${gl_type}"
+
+mhwd-gpu --check

@@ -7,7 +7,9 @@ SCRIPTS = \
 	scripts/grub-remove \
 	scripts/kernel-install \
 	scripts/kernel-remove \
-	scripts/mhwd-config
+	scripts/mhwd-install \
+	scripts/mhwd-remove \
+	scripts/mhwd-upgrade
 
 # 	scripts/keyring-upgrade \
 # 	scripts/dev-keys-upgrade \
@@ -17,7 +19,9 @@ HOOKS = \
 	hooks/grub-remove.hook \
 	hooks/kernel-install.hook \
 	hooks/kernel-remove.hook \
-	hooks/mhwd-config.hook
+	hooks/mhwd-install.hook \
+	hooks/mhwd-remove.hook \
+	hooks/mhwd-upgrade.hook
 
 # 	hooks/keyring-upgrade.hook \
 # 	hooks/dev-keys-upgrade.hook \
