@@ -9,7 +9,7 @@ fi
 
 run_depmod
 
-run_initcpio
+# run_initcpio
 
 echo ">>> WARNING: AT keyboard support is no longer built into the kernel."
 echo ">>>          In order to use your keyboard during early init, you MUST"
