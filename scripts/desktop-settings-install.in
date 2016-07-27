@@ -5,4 +5,4 @@ source @prefix@/share/libalpm/util-manjaro.sh
 echo "	==> To use the settings:"
 echo "	1. ceate new user acount"
 echo "	or"
-echo "	2. copy the content of /etc/skel/* to $HOME"
+echo "	2. copy the content of /etc/skel/* to your user home"

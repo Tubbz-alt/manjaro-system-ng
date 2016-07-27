@@ -6,6 +6,9 @@ Operation = Upgrade
 Type = File
 Target = etc/skel/*
 Target = etc/skel/*/?*
+Target = !etc/skel/.bashrc
+Target = !etc/skel/.bash_profile
+Target = !etc/skel/.bash_logout
 
 [Action]
 Description = Desktop settings information ...
