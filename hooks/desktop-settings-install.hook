@@ -1,0 +1,14 @@
+# NOTE: will not run if the transaction is interrupted for any reason
+
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = File
+Target = etc/skel/*
+Target = etc/skel/*/?*
+
+[Action]
+Description = Desktop settings information ...
+When = PostTransaction
+Exec = /usr/share/libalpm/scripts/desktop-settings-install
+NeedsTargets

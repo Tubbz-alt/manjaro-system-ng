@@ -9,7 +9,8 @@ SCRIPTS = \
 	scripts/kernel-remove \
 	scripts/mhwd-install \
 	scripts/mhwd-remove \
-	scripts/mhwd-upgrade
+	scripts/mhwd-upgrade \
+	scripts/desktop-settings-install
 
 # 	scripts/keyring-upgrade \
 # 	scripts/dev-keys-upgrade \
@@ -21,7 +22,8 @@ HOOKS = \
 	hooks/kernel-remove.hook \
 	hooks/mhwd-install.hook \
 	hooks/mhwd-remove.hook \
-	hooks/mhwd-upgrade.hook
+	hooks/mhwd-upgrade.hook \
+	hooks/desktop-settings-install.hook
 
 # 	hooks/keyring-upgrade.hook \
 # 	hooks/dev-keys-upgrade.hook \
