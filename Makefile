@@ -1,32 +1,21 @@
-Version=16.09
+Version=17.1
 
 PREFIX = /usr/local
+SYSCONFDIR = /etc
 
 SCRIPTS = \
-	scripts/grub-install \
-	scripts/grub-remove \
-	scripts/kernel-install \
-	scripts/kernel-remove \
-	scripts/mhwd-install \
-	scripts/mhwd-remove \
-	scripts/mhwd-upgrade \
-	scripts/desktop-settings-install
-
-# 	scripts/keyring-upgrade \
-# 	scripts/dev-keys-upgrade \
+	$(wildcard scripts/*-install) \
+	$(wildcard scripts/*-remove) \
+	$(wildcard scripts/*-upgrade)
 
 HOOKS = \
-	hooks/grub-install.hook \
-	hooks/grub-remove.hook \
-	hooks/kernel-install.hook \
-	hooks/kernel-remove.hook \
-	hooks/mhwd-install.hook \
-	hooks/mhwd-remove.hook \
-	hooks/mhwd-upgrade.hook \
-	hooks/desktop-settings-install.hook
+	$(wildcard hooks/*.hook)
 
-# 	hooks/keyring-upgrade.hook \
-# 	hooks/dev-keys-upgrade.hook \
+PKRULES = \
+	$(wildcard data/*.rules)
+
+# DBUSCONF= \
+# 	$(wildcard data/*.conf)
 
 LIB = \
 	lib/util-manjaro.sh
@@ -55,10 +44,15 @@ install:
 	install -dm0755 $(DESTDIR)$(PREFIX)/share/libalpm
 	install -m0644 ${LIB} $(DESTDIR)$(PREFIX)/share/libalpm
 
+	install -dm0750 $(DESTDIR)$(SYSCONFDIR)/polkit-1/rules.d
+	install -Dm0644 ${PKRULES} $(DESTDIR)$(SYSCONFDIR)/polkit-1/rules.d
+	chown 102 $(DESTDIR)$(SYSCONFDIR)/polkit-1/rules.d
+
 uninstall:
 	for f in ${SCRIPTS}; do rm -f $(DESTDIR)$(PREFIX)/share/libalpm/scripts/$$f; done
 	for f in ${HOOKS}; do rm -f $(DESTDIR)$(PREFIX)/share/libalpm/hooks/$$f; done
 	for f in ${LIB}; do rm -f $(DESTDIR)$(PREFIX)/share/libalpm/$$f; done
+	for f in ${PKRULES}; do rm -f $(DESTDIR)$(SYSCONFDIR)/polkit-1/rules.d/$$f; done
 
 install: install
 
