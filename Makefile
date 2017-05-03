@@ -4,9 +4,7 @@ PREFIX = /usr/local
 SYSCONFDIR = /etc
 
 SCRIPTS = \
-	$(wildcard scripts/*-install) \
-	$(wildcard scripts/*-remove) \
-	$(wildcard scripts/*-upgrade)
+	$(wildcard scripts/*)
 
 HOOKS = \
 	$(wildcard hooks/*.hook)
