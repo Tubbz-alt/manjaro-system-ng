@@ -44,7 +44,7 @@ install:
 
 	install -dm0750 $(DESTDIR)$(SYSCONFDIR)/polkit-1/rules.d
 	install -Dm0644 ${PKRULES} $(DESTDIR)$(SYSCONFDIR)/polkit-1/rules.d
-	chown 102 $(DESTDIR)$(SYSCONFDIR)/polkit-1/rules.d
+	chown root:102 $(DESTDIR)$(SYSCONFDIR)/polkit-1/rules.d
 
 uninstall:
 	for f in ${SCRIPTS}; do rm -f $(DESTDIR)$(PREFIX)/share/libalpm/scripts/$$f; done
