@@ -8,7 +8,7 @@ Target = usr/share/pacman/keyrings/*-trusted
 Target = usr/share/pacman/keyrings/*-revoked
 
 [Action]
-Description = Updating keyrings ...
+Description = Initialize and populate keyring ...
 Depends = haveged
 When = PostTransaction
 Exec = /usr/share/libalpm/scripts/keyring-upgrade

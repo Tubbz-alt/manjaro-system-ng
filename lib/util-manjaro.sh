@@ -41,7 +41,7 @@ is_installed_nvidia(){
 }
 
 is_installed_ati(){
-    if [ "$(mhwd -li | grep catalyst)" != "" ] && \
+    if [ "$(mhwd -li | grep amd-gpu)" != "" ] && \
         [ "$(mhwd -li | grep hybrid)" == "" ]; then
         return 0
     else
@@ -57,28 +57,13 @@ is_installed_hybrid(){
     fi
 }
 
-install_pkg(){
-    local pkg=$1
+run_pacman(){
     rm_db_lck
-    pacman --noconfirm -S $pkg
+    pacman --noconfirm "$@"
     mk_db_lck
 }
 
-run_pac_cmd(){
-    local args=$1 pkgs=$2
-    rm_db_lck
-    pacman --noconfirm -$args $pkgs
-    mk_db_lck
-}
-
-remove_pkg(){
-    local pkg=$1
-    rm_db_lck
-    pacman --noconfirm -Rdd $pkg
-    mk_db_lck
-}
-
-ver_is_greater(){
+is_greater(){
     if [ "$(vercmp $1 $2)" -gt 0 ]; then
         return 0
     else
@@ -86,7 +71,7 @@ ver_is_greater(){
     fi
 }
 
-ver_is_lower(){
+is_lower(){
     if [ "$(vercmp $1 $2)" -lt 0 ]; then
         return 0
     else
@@ -94,7 +79,7 @@ ver_is_lower(){
     fi
 }
 
-ver_is_equal(){
+is_equal(){
     if [ "$(vercmp $1 $2)" -eq 0 ]; then
         return 0
     else
@@ -111,30 +96,3 @@ get_pkg_ver(){
 set_pkg_ver(){
     ver=$(get_pkg_ver $1)
 }
-
-configure_grub_info(){
-    for file in grub.info grub-dev.info; do
-        install-info "$@" /usr/share/info/${file}.gz /usr/share/info/dir 2> /dev/null
-    done
-}
-
-run_depmod(){
-    for kernel in /usr/lib/modules/extramodules-*-MANJARO/version;do
-        local version=$(cat $kernel)
-        echo ">>> Updating ${version} module dependencies ..."
-        depmod ${version}
-    done
-}
-#
-# run_initcpio(){
-#     for preset in /etc/mkinitcpio.d/*.preset;do
-#         # remove old initcpio
-#         source $preset
-#         rm -f ${default_image}
-#
-#         local kern=${preset%.*}
-#         echo ">>> Generating ${kern##*/} initial ramdisk, using mkinitcpio ..."
-#
-#         mkinitcpio -p ${kern##*/}
-#     done
-# }

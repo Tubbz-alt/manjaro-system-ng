@@ -3,7 +3,6 @@
 source @prefix@/share/libalpm/util-manjaro.sh
 
 # recreate pacman gnupg master key
-echo "Recreate pacman gnupg master key ..."
 if ${is_systemd};then
 	systemctl start haveged
 else
@@ -11,7 +10,6 @@ else
 fi
 rm -fr /etc/pacman.d/gnupg
 pacman-key --init
-echo "Populate Archlinux and Manjaro gnupg keys ..."
 pacman-key --populate archlinux manjaro
 if ${is_systemd};then
 	systemctl stop haveged
