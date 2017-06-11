@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source @prefix@/share/libalpm/util-manjaro.sh
+source @prefix@/lib/manjaro/util-manjaro.sh
 
 # recreate pacman gnupg master key
 if ${is_systemd};then
