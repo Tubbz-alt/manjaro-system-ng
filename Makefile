@@ -1,16 +1,12 @@
 Version=17.1
 
 PREFIX = /usr/local
-SYSCONFDIR = /etc
 
 SCRIPTS = \
 	$(wildcard scripts/*)
 
 HOOKS = \
 	$(wildcard hooks/*.hook)
-
-# DBUSCONF= \
-# 	$(wildcard data/*.conf)
 
 LIB = \
 	$(wildcard lib/*.sh)
