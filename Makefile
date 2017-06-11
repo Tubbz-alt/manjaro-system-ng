@@ -13,7 +13,7 @@ HOOKS = \
 # 	$(wildcard data/*.conf)
 
 LIB = \
-	lib/util-manjaro.sh
+	$(wildcard lib/*.sh)
 
 all: $(SCRIPTS)
 
@@ -36,13 +36,13 @@ install:
 	install -dm0755 $(DESTDIR)$(PREFIX)/share/libalpm/hooks
 	install -m0644 ${HOOKS} $(DESTDIR)$(PREFIX)/share/libalpm/hooks
 
-	install -dm0755 $(DESTDIR)$(PREFIX)/share/libalpm
-	install -m0644 ${LIB} $(DESTDIR)$(PREFIX)/share/libalpm
+	install -dm0755 $(DESTDIR)$(PREFIX)/lib/manjaro
+	install -m0644 ${LIB} $(DESTDIR)$(PREFIX)/lib/majaro
 
 uninstall:
 	for f in ${SCRIPTS}; do rm -f $(DESTDIR)$(PREFIX)/share/libalpm/scripts/$$f; done
 	for f in ${HOOKS}; do rm -f $(DESTDIR)$(PREFIX)/share/libalpm/hooks/$$f; done
-	for f in ${LIB}; do rm -f $(DESTDIR)$(PREFIX)/share/libalpm/$$f; done
+	for f in ${LIB}; do rm -f $(DESTDIR)$(PREFIX)/lib/manjaro/$$f; done
 
 install: install
 

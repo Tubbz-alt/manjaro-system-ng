@@ -1,11 +1,7 @@
 #!/bin/sh
 
-if [[ -d /run/openrc ]];then
-    is_systemd=false
-else
-    is_systemd=true
-fi
-
+is_systemd=true
+[[ -d /run/openrc ]] && is_systemd=false
 
 rm_db_lck(){
     rm /var/lib/pacman/db.lck &> /dev/null
