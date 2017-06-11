@@ -39,8 +39,8 @@ install:
 	install -dm0755 $(DESTDIR)$(PREFIX)/share/libalpm/hooks
 	install -m0644 ${HOOKS} $(DESTDIR)$(PREFIX)/share/libalpm/hooks
 
-	install -dm0755 $(DESTDIR)$(PREFIX)/lib/manjaro/bin
-	install -m0644 ${LIB} $(DESTDIR)$(PREFIX)/lib/manjaro/bin
+	install -dm0755 $(DESTDIR)$(PREFIX)/lib/manjaro
+	install -m0644 ${LIB} $(DESTDIR)$(PREFIX)/lib/manjaro
 
 	install -dm0755 $(DESTDIR)$(SYSCONFDIR)/profile.d
 	install -m0755 ${PROFILED} $(DESTDIR)$(SYSCONFDIR)/profile.d
@@ -48,7 +48,7 @@ install:
 uninstall:
 	for f in ${SCRIPTS}; do rm -f $(DESTDIR)$(PREFIX)/share/libalpm/scripts/$$f; done
 	for f in ${HOOKS}; do rm -f $(DESTDIR)$(PREFIX)/share/libalpm/hooks/$$f; done
-	for f in ${LIB}; do rm -f $(DESTDIR)$(PREFIX)/lib/manjaro/bin/$$f; done
+	for f in ${LIB}; do rm -f $(DESTDIR)$(PREFIX)/lib/manjaro/$$f; done
 	for f in ${PROFILED}; do rm -f $(DESTDIR)$(SYSCONFDIR)/profile.d/$$f; done
 
 
