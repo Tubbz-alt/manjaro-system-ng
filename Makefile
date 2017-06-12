@@ -1,6 +1,7 @@
 Version=17.1
 
 PREFIX = /usr/local
+SYSCONFDIR = /etc
 
 SCRIPTS = \
 	$(wildcard scripts/*)
@@ -10,6 +11,9 @@ HOOKS = \
 
 LIB = \
 	$(wildcard lib/*.sh)
+
+BASHRC = \
+	$(wildcard bashrc.d/*.bashrc)
 
 all: $(SCRIPTS)
 
@@ -35,10 +39,14 @@ install:
 	install -dm0755 $(DESTDIR)$(PREFIX)/lib/manjaro
 	install -m0644 ${LIB} $(DESTDIR)$(PREFIX)/lib/manjaro
 
+	install -dm0755 $(DESTDIR)$(SYSCONFDIR)/bash/bashrc.d
+	install -m0644 ${BASHRC} $(DESTDIR)$(SYSCONFDIR)/bash/bashrc.d
+
 uninstall:
 	for f in ${SCRIPTS}; do rm -f $(DESTDIR)$(PREFIX)/share/libalpm/scripts/$$f; done
 	for f in ${HOOKS}; do rm -f $(DESTDIR)$(PREFIX)/share/libalpm/hooks/$$f; done
 	for f in ${LIB}; do rm -f $(DESTDIR)$(PREFIX)/lib/manjaro/$$f; done
+	for f in ${BASHRC}; do rm -f $(DESTDIR)$(SYSCONFDIR)/bash/bashrc.d/$$f; done
 
 install: install
 
