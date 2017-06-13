@@ -27,32 +27,6 @@ is_installed(){
     fi
 }
 
-is_installed_nvidia(){
-    if [ "$(mhwd -li | grep nvidia)" != "" ] && \
-        [ "$(mhwd -li | grep hybrid)" == "" ] ; then
-        return 0
-    else
-        return 1
-    fi
-}
-
-is_installed_ati(){
-    if [ "$(mhwd -li | grep amd-gpu)" != "" ] && \
-        [ "$(mhwd -li | grep hybrid)" == "" ]; then
-        return 0
-    else
-        return 1
-    fi
-}
-
-is_installed_hybrid(){
-    if [ "$(mhwd -li | grep hybrid)" != "" ]; then
-        return 0
-    else
-        return 1
-    fi
-}
-
 run_pacman(){
     rm_db_lck
     pacman --noconfirm "$@"
