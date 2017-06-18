@@ -4,7 +4,10 @@ PREFIX = /usr/local
 SYSCONFDIR = /etc
 
 SCRIPTS = \
-	$(wildcard scripts/*)
+	$(wildcard scripts/*.in)
+
+SCRIPTS_BIN = \
+        scripts/keyring-upgrade
 
 HOOKS = \
 	$(wildcard hooks/*.hook)
@@ -15,7 +18,7 @@ LIB = \
 BASHRC = \
 	$(wildcard bashrc.d/*.bashrc)
 
-all: $(SCRIPTS)
+all: $(SCRIPTS_BIN)
 
 edit = sed -e "s|@prefix@|${PREFIX}|"
 
