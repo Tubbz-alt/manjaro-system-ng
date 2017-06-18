@@ -34,7 +34,7 @@ clean:
 
 install:
 	install -dm0755 $(DESTDIR)$(PREFIX)/share/libalpm/scripts
-	install -m0755 ${SCRIPTS} $(DESTDIR)$(PREFIX)/share/libalpm/scripts
+	install -m0755 ${SCRIPTS_BIN} $(DESTDIR)$(PREFIX)/share/libalpm/scripts
 
 	install -dm0755 $(DESTDIR)$(PREFIX)/share/libalpm/hooks
 	install -m0644 ${HOOKS} $(DESTDIR)$(PREFIX)/share/libalpm/hooks
