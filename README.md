@@ -1,3 +1,5 @@
-# manjaro-system-ng
+This repo has been archived. Our code is now hosted at
 
-* from manjaro-update-system.sh needs to be ported what is required
+https://gitlab.manjaro.org/
+
+See you there!
